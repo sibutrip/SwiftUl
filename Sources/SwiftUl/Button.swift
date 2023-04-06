@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct Button<Label>: View where Label : View {
+public struct Button<Label>: View where Label : View {
     var imageName = "button"
     var isCancel = false
-    var body: some View {
+    public var body: some View {
         ZStack {
             Image(imageName, bundle: Bundle.module)
                 .resizable()
@@ -27,7 +27,7 @@ struct Button<Label>: View where Label : View {
     }
 }
 
-extension Button {
+public extension Button {
     init(action: () -> Void, label: () -> Label) {}
     
     init(_ titleKey: LocalizedStringKey, action: () -> Void) {}
@@ -89,7 +89,5 @@ struct SwiftUIView_Previews: PreviewProvider {
         } label: {
             Image("FUCK")
         }
-        
-
     }
 }
