@@ -13,7 +13,7 @@ internal struct TextFieldComponent: Identifiable {
     var offset: CGSize
 }
 
-public struct TextField: View {
+public struct TextField: SwiftUI.View {
     var title: String
     @Binding var text: String
     
@@ -24,13 +24,13 @@ public struct TextField: View {
         self._text = text
     }
     
-    public var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Image("field", bundle: Bundle.module)
+    public var body: some SwiftUI.View {
+        SwiftUI.GeometryReader { geometry in
+            SwiftUI.ZStack {
+                SwiftUI.Image("field", bundle: Bundle.module)
                     .resizable()
                     .overlay {
-                        HStack {
+                        SwiftUI.HStack {
                             SwiftUI.TextField(title, text: $text)
                                 .textFieldStyle(.roundedBorder)
                                 .onChange(of: text) { newValue in
@@ -43,10 +43,10 @@ public struct TextField: View {
                                 }
                             
                             if !textComponents.isEmpty {
-                                Button {
+                                SwiftUI.Button {
                                     textComponents = []
                                 } label: {
-                                    Image(systemName: "xmark.circle.fill")
+                                    SwiftUI.Image(systemName: "xmark.circle.fill")
                                         .foregroundColor(.primary)
                                 }
                             }
@@ -54,13 +54,13 @@ public struct TextField: View {
                         .padding()
                     }
                 
-                ForEach(textComponents) { component in
-                    Text(component.text)
+                SwiftUI.ForEach(textComponents) { component in
+                    SwiftUI.Text(component.text)
                         .font(.title3)
                         .foregroundColor(.green)
                         .padding(5)
                         .background {
-                            Circle()
+                            SwiftUI.Circle()
                                 .colorInvert()
                         }
                         .offset(component.offset)
