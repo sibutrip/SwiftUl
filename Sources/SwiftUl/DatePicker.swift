@@ -17,7 +17,6 @@ public struct DateFruit: Identifiable {
     
 }
 
-@available(iOS 15.0, *)
 public struct DatePicker: View {
     
     public init(minimumCapacity: Int) {
@@ -57,7 +56,6 @@ public struct DatePicker: View {
     }
 }
 
-@available(iOS 15.0, *)
 struct DatePicker_Previews: PreviewProvider {
     static var previews: some View {
         DatePicker(minimumCapacity: 5)
