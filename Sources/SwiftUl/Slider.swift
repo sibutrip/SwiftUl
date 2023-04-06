@@ -17,6 +17,7 @@ public struct SliderView: View {
     }
 }
 public struct Slider: View {
+    public init() { }
     @State private var numberOfSliders = 5
     @State private var offset = CGFloat(0)
     @State private var isEditing = false
