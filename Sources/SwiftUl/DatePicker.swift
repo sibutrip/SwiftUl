@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct DateFruit: Identifiable {
     public let id = UUID()
-    let imageName = "fruit"
+    let imageName = "dateFruit"
     var offsets: (CGFloat,CGFloat) = {
         (CGFloat.random(in: -100...100),CGFloat.random(in: -200...0))
     }()
@@ -19,8 +19,8 @@ public struct DateFruit: Identifiable {
 
 public struct DatePicker: View {
     
-    public init(minimumCapacity: Int) {
-        dates = (0..<minimumCapacity).map {_ in
+    public init(_ amount: Int) {
+        dates = (0..<amount).map {_ in
             .init()
         }
     }
@@ -58,7 +58,7 @@ public struct DatePicker: View {
 
 struct DatePicker_Previews: PreviewProvider {
     static var previews: some View {
-        DatePicker(minimumCapacity: 5)
+        DatePicker(5)
     }
 }
 
