@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct SliderView: View {
+public struct SliderAccoutrements: View {
     public var body: some View {
         Image("slider", bundle: Bundle.module)
             .resizable()
@@ -42,7 +42,7 @@ public struct Slider: View {
                             }
                     )
                 ForEach(0..<Int(numberOfSliders), id: \.self) {_ in
-                    SliderView()
+                    SliderAccoutrements()
                 }
             }
         }
