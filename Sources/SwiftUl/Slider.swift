@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct SliderView: View {
     public var body: some View {
-        Image("slider")
+        Image("slider", bundle: Bundle.module)
             .resizable()
             .frame(width: 75, height: 75)
             .offset(x: CGFloat.random(in: -150...150), y: CGFloat.random(in: -150...150))
@@ -27,7 +27,7 @@ public struct Slider: View {
                 Rectangle()
                     .frame(maxWidth: .infinity)
                     .frame(height: 4)
-                Image("slider")
+                Image("slider", bundle: Bundle.module)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
