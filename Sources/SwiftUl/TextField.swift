@@ -70,6 +70,78 @@ public struct TextField: View {
     }
 }
 
+extension TextField {
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, axis: Axis) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+    
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, prompt: Text?, axis: Axis) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, axis: Axis) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, prompt: Text?, axis: Axis) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, prompt: Text?) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, prompt: Text?) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void, onCommit: @escaping () -> Void) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init(_ titleKey: LocalizedStringKey, text: Binding<String>, onCommit: @escaping () -> Void) {
+        self.title = Mirror(reflecting: titleKey).children.first(where: { $0.label == "key" })?.value as? String ?? ""
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void, onCommit: @escaping () -> Void) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+
+    public init<S>(_ title: S, text: Binding<String>, onCommit: @escaping () -> Void) where S : StringProtocol {
+        self.title = title.decomposedStringWithCanonicalMapping
+        self._text = text
+    }
+}
+
 internal struct TextFieldTest: View {
     @State private var name = ""
     
