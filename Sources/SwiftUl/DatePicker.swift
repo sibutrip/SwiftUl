@@ -39,7 +39,7 @@ public struct DatePicker: View {
             }
             ZStack {
                 ForEach(0..<dates.count, id: \.self) { index in
-                    Image("fruit", bundle: Bundle.module)
+                    Image("dateFruit", bundle: Bundle.module)
                         .resizable()
                         .frame(width: 50, height: 50)
                         .offset(x: dates[index].offsets.0, y: dates[index].offsets.1)
@@ -56,8 +56,8 @@ public struct DatePicker: View {
     }
 }
 
-struct DatePicker_Previews: PreviewProvider {
-    static var previews: some View {
+public struct DatePicker_Previews: PreviewProvider {
+    public static var previews: some View {
         DatePicker(5)
     }
 }
